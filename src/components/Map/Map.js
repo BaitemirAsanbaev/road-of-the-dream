@@ -8,9 +8,7 @@ import {
 } from "react-leaflet";
 import L from 'leaflet';
 
-import 'leaflet/dist/leaflet.css';
-import marker_icon from "../../assets/marker.svg"
-
+import marker_icon from "../assets/marker.svg"
 const customIcon = L.icon({
     iconUrl: marker_icon,
     iconSize: [32, 32],
@@ -18,13 +16,15 @@ const customIcon = L.icon({
   
 const LocationPicker2 = () => {
   const [positions, setPositions] = useState([]);
+  const [badRoads, setBadRoads] = useState([]);
 
   const handleMapClick = (e) => {
     const { lat, lng } = e.latlng;
     const newPosition = [lat, lng];
-    setPositions([newPosition]);
+    setPositions((prevPositions) => [...prevPositions, newPosition]);
+    setBadRoads((prevBadRoads) => [...prevBadRoads, newPosition]);
+    console.log(badRoads);
   };
-  
 
   const LocationMarkers = () => {
     useMapEvents({
@@ -40,10 +40,11 @@ const LocationPicker2 = () => {
     <MapContainer
       center={[42.8746, 74.5698]}
       zoom={13}
-      style={{ height: "400px", width:"400px" }}
+      style={{ height: "400px" }}
     >
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       <LocationMarkers />
+      <Polyline pathOptions={{ color: "red" }} positions={badRoads} />
     </MapContainer>
   );
 };
