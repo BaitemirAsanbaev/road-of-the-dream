@@ -1,11 +1,20 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import 'leaflet/dist/leaflet.css';
-import Map2 from "./components/Map2";
+import Layout from "./components/Layout/Layout";
+import Home from "./pages/Home/Home";
+import Auth from "./pages/Auth/Auth";
+import NotFound from "./pages/NotFound/NotFound";
 
 function App() {
   return (
     <div>
-        <Map2 />
+      <Layout>
+        <Routes>
+          <Route path="/" index element={<Home/>}/>
+          <Route path="/auth" element={<Auth/>}/>
+          <Route path="*" element={<NotFound/>}/>
+        </Routes>
+      </Layout>
     </div>
   );
 }
