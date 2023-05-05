@@ -30,7 +30,7 @@ const Home = () => {
             </div>
             <div className={sexy.star}>
               <p>
-                Оцените качество дороги: <br />
+                Оцените качество дороги: <br className={sexy.br} />
                 oт 1 до 5 (1- норм 5- слишком плохо)
               </p>
               <Rating name="size-large" defaultValue={2} size="large" className={sexy.rating} />
