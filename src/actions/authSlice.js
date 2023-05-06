@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const login = createAsyncThunk('auth/login', async ({ username, password, email }) => {
-  const response = await axios.post('http://192.168.0.64:8000/login/', { username, password, email });
+  const response = await axios.post('http://192.168.100.64:8000/login/', { username, password, email });
   const token = response.data.token;
   localStorage.setItem('jwtToken', token);
   localStorage.setItem('username', username);
@@ -11,7 +11,7 @@ export const login = createAsyncThunk('auth/login', async ({ username, password,
 });
 
 export const signup = createAsyncThunk('auth/signup', async ({ username, password, email }) => {
-  const response = await axios.post('http://192.168.0.64:8000/signup/', { username, password, email });
+  const response = await axios.post('http://192.168.100.64:8000/signup/', { username, password, email });
   const token = response.data.token;
   localStorage.setItem('jwtToken', token);
   localStorage.setItem('username', username);

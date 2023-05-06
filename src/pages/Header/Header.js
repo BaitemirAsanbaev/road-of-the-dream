@@ -1,5 +1,6 @@
 import sexy from './Header.module.scss';
 import logo from '../../assets/logo.png';
+import { Link, NavLink } from 'react-router-dom';
 
 function Header() {
   return (
@@ -12,9 +13,12 @@ function Header() {
           ROAD <span>of the</span> DREAM
         </a>
         <div className={sexy.headRight}>
-          <a href="/companies">Компании</a>
-          <a href="https://rt.pornhub.com/">Активисты</a>
-          <a href="/auth">Профиль</a>
+
+          <Link to="/compains">Компании</Link>
+          <Link to="/map">Карта</Link>
+          <Link to="/profile">Профиль</Link>
+          <NavLink to="/">Home</NavLink>
+
         </div>
       </header>
     </div>

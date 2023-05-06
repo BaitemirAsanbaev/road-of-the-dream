@@ -133,7 +133,7 @@ const Form = ({ pos, street }) => {
   function sendReview() {
     axios
       .post(
-        "http://192.168.0.64:8000/reviews/",
+        "http://192.168.100.64:8000/reviews/",
         {
           title,
           // image,
