@@ -6,6 +6,9 @@ import NotFound from "./pages/NotFound/NotFound";
 import { useSelector } from "react-redux";
 import Login from "./pages/Auth/Login";
 import Signup from "./pages/Auth/Signup";
+import Nav from "./components/Nav/Nav";
+import Header from "./pages/Header/Header";
+import Map2 from "./pages/Map2/Map2";
 
 function App() {
   const token = useSelector((state) => state.auth.token);
@@ -13,9 +16,11 @@ function App() {
 
   return (
     <div>
+      <Header/>
       {token ? (
         <Routes>
           <Route path="/" index element={<Home />} />
+          <Route path="/map" index element={<Map2 />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       ) : (

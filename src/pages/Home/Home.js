@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <div>
         {/* <GetData/> */}
-      <Header />
+    
       <div className={sexy.homeWrapper}>
         <div className={sexy.homeForm}>
           <Map setPos={setPos} setStreet={setStreet}/>
