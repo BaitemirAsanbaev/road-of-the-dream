@@ -1,16 +1,16 @@
 // Login.js
 
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { login } from "../action/authSlice";
-import cl from "./Login.module.scss";
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { login } from '../../actions/authSlice';
+import cl from './Login.module.scss';
 const Login = () => {
   const dispatch = useDispatch();
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
-  const loading = useSelector((state) => state.auth.status === "loading");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const loading = useSelector((state) => state.auth.status === 'loading');
   const error = useSelector((state) => state.auth.error);
 
   const handleLogin = () => {
@@ -27,14 +27,14 @@ const Login = () => {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-       
+
         <input
           type="email"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-         <input
+        <input
           type="password"
           placeholder="пароль"
           value={password}
@@ -42,9 +42,9 @@ const Login = () => {
         />
         <span>
           <button onClick={handleLogin} disabled={loading}>
-            {loading ? "Загрузка..." : "Войти"}
+            {loading ? 'Загрузка...' : 'Войти'}
           </button>
-          <Link to='/signup'>Регистрация</Link>
+          <Link to="/signup">Регистрация</Link>
         </span>
         {error && <p>Error: {error}</p>}
       </div>

@@ -2,17 +2,15 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
 import NotFound from './pages/NotFound/NotFound';
 import { useSelector } from 'react-redux';
-import Login from './pages/Auth/Login';
-import Signup from './pages/Auth/Signup';
+import Login from './components/Login/Login';
+import Signup from './components/Signup/Signup';
 
-import Nav from './components/Nav/Nav';
 import Header from './pages/Header/Header';
 import Map2 from './pages/Map2/Map2';
 import Profile from './pages/Profile/Profile';
 
 import './App.css';
 import Home from './pages/Home/Home';
-import Companies from './pages/Companies/Companies';
 
 function App() {
   const token = useSelector((state) => state.auth.token);

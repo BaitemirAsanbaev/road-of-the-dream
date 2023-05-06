@@ -1,17 +1,16 @@
 // Signup.js
 
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { signup } from "../action/authSlice";
-import cl from "./Signup.module.scss";
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { signup } from '../../actions/authSlice';
+import cl from './Signup.module.scss';
 
 const Signup = () => {
   const dispatch = useDispatch();
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
-  const loading = useSelector((state) => state.auth.status === "loading");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const loading = useSelector((state) => state.auth.status === 'loading');
   const error = useSelector((state) => state.auth.error);
   const token = useSelector((state) => state.auth.token);
   const [redirect, setRedirect] = useState(false);
@@ -51,9 +50,8 @@ const Signup = () => {
             handleSignup();
             setRedirect(true);
           }}
-          disabled={loading}
-        >
-          {loading ? "Loading..." : "Signup"}
+          disabled={loading}>
+          {loading ? 'Loading...' : 'Signup'}
         </button>
 
         {error && <p>Error: {error}</p>}

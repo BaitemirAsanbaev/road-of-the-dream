@@ -8,7 +8,7 @@ function Profile() {
     <div>
       <div className={cl.wrapper}>
         <div className={cl.user}>
-          <div className={cl.head}> 
+          <div className={cl.head}>
             <p>Profile</p>
             <span>
               <p>5</p>
