@@ -136,7 +136,7 @@ const Form = ({ pos, street }) => {
         "http://192.168.0.64:8000/reviews/",
         {
           title,
-          image,
+          // image,
           longitude: pos[1],
           latitude: pos[0],
           description,
@@ -178,7 +178,7 @@ const Form = ({ pos, street }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className={sexy.Form}>
+    <form onSubmit={handleSubmit} className={sexy.Form} encType="application/json">
       <h1>Заполнение жалобы</h1>
       <div className={sexy.reason}>
         <input
@@ -210,10 +210,10 @@ const Form = ({ pos, street }) => {
           className={sexy.rating}
         />
       </div>
-      <div className={sexy.photo}>
+      {/* <div className={sexy.photo}>
         <p>Загрузите фото:</p>
         <input onChange={handleFileChange} type="file" className={sexy.file} />
-      </div>
+      </div> */}
       <div className={sexy.area}>
         <textarea
           onInput={(e) => setDescription(e.target.value)}

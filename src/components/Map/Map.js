@@ -23,8 +23,8 @@ const Map = ({ setPos, setStreet }) => {
     fetch(url)
       .then(response => response.json())
       .then(data => {
-        setStreet(data.address.road + data.address.house_number)
-        console.log(data.address.road, data.address.house_number);
+        setStreet(data.address.road)
+        console.log(data.address.road);
       })
       .catch(error => console.log(error));
   }
