@@ -1,14 +1,21 @@
 import Header from '../Header/Header';
 import sexy from './Home.module.scss';
-import Rating from '@mui/material/Rating';
-import send from '../../assets/arrow-upward.png';
+import Form from '../../components/Form/Form';
+import Map from '../../components/Map/Map';
+import { useState } from 'react';
 
 const Home = () => {
+    const [pos, setPos] = useState([])
+    const [street, setStreet] = useState('')
   return (
     <div>
+        {/* <GetData/> */}
       <Header />
       <div className={sexy.homeWrapper}>
         <div className={sexy.homeForm}>
+
+          <Map setPos={setPos} setStreet={setStreet}/>
+          <Form pos={pos} street={street} />
           <div className={sexy.map}>
             <h3>leaflet map</h3>
           </div>
