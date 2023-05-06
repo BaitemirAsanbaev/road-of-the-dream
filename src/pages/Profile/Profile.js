@@ -2,6 +2,7 @@ import React from 'react';
 import cl from './Profile.module.scss';
 import star from '../../assets/star.png';
 import ava from '../../assets/profile.png';
+import Logout from '../../components/Logout/Logout';
 
 function Profile() {
   return (
@@ -28,6 +29,7 @@ function Profile() {
                 <br />
                 Amitbek@gmail.com
               </p>
+              <Logout />
             </div>
             <div className={cl.story}>
               <h4>User's claim story</h4>
