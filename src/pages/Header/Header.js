@@ -10,7 +10,7 @@ function Header() {
         <div className={sexy.headRight}>
           <Link to="/compains">Компании</Link>
           <Link to="/map">Карта</Link>
-          <Link to="/auth">Профиль</Link>
+          <Link to="/profile">Профиль</Link>
           <NavLink to="/">Home</NavLink>
         </div>
       </header>

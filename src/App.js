@@ -9,6 +9,7 @@ import Signup from "./pages/Auth/Signup";
 import Nav from "./components/Nav/Nav";
 import Header from "./pages/Header/Header";
 import Map2 from "./pages/Map2/Map2";
+import Profile from "./pages/Profile/Profile";
 
 function App() {
   const token = useSelector((state) => state.auth.token);
@@ -21,6 +22,7 @@ function App() {
         <Routes>
           <Route path="/" index element={<Home />} />
           <Route path="/map" index element={<Map2 />} />
+          <Route path="/map" index element={<Profile />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       ) : (
