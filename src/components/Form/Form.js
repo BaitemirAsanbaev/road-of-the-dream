@@ -1,4 +1,4 @@
-// import sexy from "./Form.module.scss";
+// import cl from "./Form.module.scss";
 // import Rating from "@mui/material/Rating";
 // import send from "../../assets/arrow-upward.png";
 // import { useState } from "react";
@@ -47,27 +47,27 @@
 //       onSubmit={(e) => {
 //         e.preventDefault();
 //       }}
-//       className={sexy.Form}
+//       className={cl.Form}
 //     >
 //       <h1>Заполнение жалобы</h1>
-//       <div className={sexy.reason}>
+//       <div className={cl.reason}>
 //         <input
 //           onInput={(e) => setTitle(e.target.value)}
 //           type="text"
-//           className={sexy.reasonInput}
+//           className={cl.reasonInput}
 //           placeholder="Введите причину жалобы"
 //         />
 //       </div>
-//       <div className={sexy.strName}>
+//       <div className={cl.strName}>
 //         <input
 //           disabled
 //           type="text"
 //           value={street}
-//           className={sexy.streetInput}
+//           className={cl.streetInput}
 //           placeholder="Выберите улицу на карте"
 //         />
 //       </div>
-//       <div className={sexy.star}>
+//       <div className={cl.star}>
 //         <p>
 //           Оцените качество дороги: <br />
 //           oт 1 до 5 (1- норм 5- слишком плохо)
@@ -77,22 +77,22 @@
 //           name="size-large"
 //           defaultValue={2}
 //           size="large"
-//           className={sexy.rating}
+//           className={cl.rating}
 //         />
 //       </div>
-//       <div className={sexy.photo}>
+//       <div className={cl.photo}>
 //         <p>Загрузите фото:</p>
 //         <input
 //           onChange={handleFileChange}
 //           type="file"
-//           className={sexy.file}
+//           className={cl.file}
 //         />
 //       </div>
-//       <div className={sexy.area}>
+//       <div className={cl.area}>
 //         <textarea
 //           onInput={(e) => setDescription(e.target.value)}
 //           placeholder="Опишите проблему подробнее"
-//           className={sexy.desc}
+//           className={cl.desc}
 //         ></textarea>
 //       </div>
 
@@ -102,10 +102,10 @@
 //         }}
 //         onClick={() => sendReview()}
 //         type="submit"
-//         className={sexy.send}
+//         className={cl.send}
 //       >
 //         Отправить
-//         <img src={send} alt="send" className={sexy.sendPng} />
+//         <img src={send} alt="send" className={cl.sendPng} />
 //       </button>
 //     </form>
 //   );
@@ -113,18 +113,18 @@
 
 // export default Form;
 
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
-import Rating from "@mui/material/Rating";
-import sexy from "./Form.module.scss";
-import send from "../../assets/arrow-upward.png";
-import requests from "../../requests/requests";
-import axios from "axios";
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import Rating from '@mui/material/Rating';
+import cl from './Form.module.scss';
+import send from '../../assets/arrow-upward.png';
+import requests from '../../requests/requests';
+import axios from 'axios';
 
 const Form = ({ pos, street }) => {
-  const [title, setTitle] = useState("");
-  const [image, setImage] = useState("");
-  const [description, setDescription] = useState("");
+  const [title, setTitle] = useState('');
+  const [image, setImage] = useState('');
+  const [description, setDescription] = useState('');
   const [rating, setRating] = useState(0);
   const username = useSelector((state) => state.auth.username);
   const email = useSelector((state) => state.auth.email);
@@ -133,7 +133,7 @@ const Form = ({ pos, street }) => {
   function sendReview() {
     axios
       .post(
-        "http://192.168.100.64:8000/reviews/",
+        'http://192.168.100.64:8000/reviews/',
         {
           title,
           // image,
@@ -149,11 +149,11 @@ const Form = ({ pos, street }) => {
         },
         {
           Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        }
+          'Content-Type': 'application/json',
+        },
       )
       .then((res) => {
-        console.log("succes", res.data);
+        console.log('succes', res.data);
       });
   }
 
@@ -172,32 +172,32 @@ const Form = ({ pos, street }) => {
   }
 
   const handleSubmit = (e) => {
-    console.log("tset");
+    console.log('tset');
     e.preventDefault();
     sendReview();
   };
 
   return (
-    <form onSubmit={handleSubmit} className={sexy.Form} encType="application/json">
+    <form onSubmit={handleSubmit} className={cl.Form} encType="application/json">
       <h1>Заполнение жалобы</h1>
-      <div className={sexy.reason}>
+      <div className={cl.reason}>
         <input
           onInput={(e) => setTitle(e.target.value)}
           type="text"
-          className={sexy.reasonInput}
+          className={cl.reasonInput}
           placeholder="Введите причину жалобы"
         />
       </div>
-      <div className={sexy.strName}>
+      <div className={cl.strName}>
         <input
           disabled
           type="text"
           value={street}
-          className={sexy.streetInput}
+          className={cl.streetInput}
           placeholder="Выберите улицу на карте"
         />
       </div>
-      <div className={sexy.star}>
+      <div className={cl.star}>
         <p>
           Оцените качество дороги: <br />
           oт 1 до 5 (1- норм 5- слишком плохо)
@@ -207,23 +207,22 @@ const Form = ({ pos, street }) => {
           name="size-large"
           defaultValue={2}
           size="large"
-          className={sexy.rating}
+          className={cl.rating}
         />
       </div>
-      {/* <div className={sexy.photo}>
+      {/* <div className={cl.photo}>
         <p>Загрузите фото:</p>
-        <input onChange={handleFileChange} type="file" className={sexy.file} />
+        <input onChange={handleFileChange} type="file" className={cl.file} />
       </div> */}
-      <div className={sexy.area}>
+      <div className={cl.area}>
         <textarea
           onInput={(e) => setDescription(e.target.value)}
           placeholder="Опишите проблему подробнее"
-          className={sexy.desc}
-        ></textarea>
+          className={cl.desc}></textarea>
       </div>
-      <button type="submit" className={sexy.send}>
+      <button type="submit" className={cl.send}>
         Отправить
-        <img src={send} alt="send" className={sexy.sendPng} />
+        <img src={send} alt="send" className={cl.sendPng} />
       </button>
     </form>
   );
